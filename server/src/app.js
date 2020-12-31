@@ -18,7 +18,7 @@ delete
 app.post('/register', (req, res) =>{
 
     res.send({
-        message: `Hello ${req.body.email}! your user was registered.`
+        message: `Hello ${req.body.email}!! your user was registered.`
     })
 
 })
