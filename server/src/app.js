@@ -3,8 +3,6 @@ const express = require('express')
 const bodyParse = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const {sequelize} = require('./models')
-const config = require ('./config/config')
 
 const app = express()
 app.use(morgan('combined'))
@@ -17,17 +15,21 @@ put
 patch
 delete
 */
+app.post('/register', (req, res) =>{
 
-require('./routes')(app)
-
-sequelize.sync()
-    .then(() =>{
-
-        app.listen(config.port)
-        console.log(`Server started on port ${config.port}`)
+    res.send({
+        message: `Hello ${req.body.email}!! your user was registered.`
     })
 
+})
 
+app.get('/status', (req, res) =>{
+
+    res.send({
+        message: 'hello status'
+    })
+
+})
 
 
 app.listen(process.env.PORT || 8081)
