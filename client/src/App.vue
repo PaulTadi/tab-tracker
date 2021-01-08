@@ -1,10 +1,18 @@
 <template>
-  <div id="app">
+  <div id="App">
     <!-- <img src="./assets/logo.png"> -->
+    
     <v-app>
+        <Page-Header app/>
+
+  
       <v-main>
-        <v-container>
-          <router-view/>
+        <v-container class="mt-16">
+      <v-row no-gutters>
+        <v-col md="8" offset-md="2">
+          <router-view app />
+        </v-col>
+      </v-row>
         </v-container>
       </v-main>
     </v-app>
@@ -12,8 +20,20 @@
 </template>
 
 <script>
+import PageHeader from '@/components/Header.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    PageHeader,
+  },
+  data: () => ({
+      alignments: [
+        'start',
+        'center',
+        'end',
+      ],
+    }),
 }
 </script>
 

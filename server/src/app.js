@@ -20,7 +20,7 @@ delete
 
 require('./routes')(app)
 
-sequelize.sync()
+sequelize.sync({ })
     .then(() =>{
 
         app.listen(config.port)
