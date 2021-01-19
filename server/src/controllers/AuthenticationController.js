@@ -1,6 +1,8 @@
 const {User} = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+//const Promise = require('bluebird')
+const bcrypt = require('bcryptjs')
 
 function jwtSignUser (user) {
     const ONE_WEEK = 60 * 60 * 24 * 7
@@ -21,9 +23,6 @@ module.exports = {
                 error: 'This email account is already in use.'
             })
         }
-        res.send({
-            message: `Hello ${req.body.email}!! your user was registered.`
-        })
 
     },
     async login(req, res) {
@@ -36,8 +35,14 @@ module.exports = {
             })
             //console.log('user', user.toJSON())
             console.log(user.password)
+            console.log(password)
+            //console.log(user)
+            const isPasswordValid = bcrypt.compare(password, user.password)
+            console.log("done comparing")
+            console.log(isPasswordValid)
             //const isPasswordValid = await user.comparePassword(password)
-            const isPasswordValid = password === user.password
+            console.log("we out of compare")
+            //const isPasswordValid = password === user.password
             //console.log('hashed')
             if (!user || !isPasswordValid) {
                 return res.status(403).send({
