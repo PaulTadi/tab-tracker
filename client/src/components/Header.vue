@@ -9,11 +9,21 @@
                     Browser
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn text to="/login">
+                <v-btn text to="/login"
+                v-if="!$store.state.isUserLoggedIn"
+                >
                     Login
                 </v-btn>
-                <v-btn text to="/register">
+                <v-btn text to="/register"
+                v-if="!$store.state.isUserLoggedIn"
+                >
                     Sign Up
+                </v-btn>
+                <v-btn
+                v-if="$store.state.isUserLoggedIn"
+                @click="logOff"
+                >
+                    Logoff
                 </v-btn>
         </v-app-bar>
 
@@ -22,6 +32,12 @@
 <script>
 
 export default {
+  methods: {
+    async logOff () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+    }
+  }
 }
 </script>
 
