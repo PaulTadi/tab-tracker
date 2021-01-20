@@ -14,7 +14,8 @@
     <br>
     <v-text-field
       label="Password"
-      v-model="email"
+      type="password"
+      v-model="password"
     ></v-text-field>
     <br>
     <div class="error" v-html="error" />
@@ -22,7 +23,7 @@
     <v-btn
     class="cyan"
     dark
-    @click="Login"
+    @click="login"
     >Login</v-btn>
 
     </div>

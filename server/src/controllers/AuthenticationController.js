@@ -15,8 +15,12 @@ module.exports = {
     async register(req, res) {
         //vuex
         try{
-        const user = await User.create(req.body)
-            res.send(user.toJSON())
+            const user = await User.create(req.body)
+            const userJson = user.toJSON()
+            res.send({
+                user: userJson,
+                token: jwtSignUser(userJson)
+            })
         } catch (err) {
             //email already exists'
             res.status(400).send({
@@ -33,23 +37,20 @@ module.exports = {
                     email: email
                 }
             })
-            //console.log('user', user.toJSON())
-            //console.log(user.password)
-            //console.log(password)
-            //console.log(user)
+            if (!user) {
+                return res.status(403).send({
+                    error: 'The login information was incorrect'
+                })
+            }
             //const isPasswordValid = bcrypt.compare(password, user.password)
-            //console.log(isPasswordValid)
             const isPasswordValid = await user.comparePassword(password)
-            console.log("done comparing")
-            //const isPasswordValid = password === user.password
-            //console.log('hashed')
-            if (!user || !isPasswordValid) {
+            //console.log("done comparing")
+            if (!isPasswordValid) {
                 return res.status(403).send({
                     error: 'The login information was incorrect'
                 })
             }
             const userJson = user.toJSON()
-            console.log
             res.send({
                 user: userJson,
                 token: jwtSignUser(userJson)
