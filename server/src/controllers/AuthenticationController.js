@@ -34,14 +34,13 @@ module.exports = {
                 }
             })
             //console.log('user', user.toJSON())
-            console.log(user.password)
-            console.log(password)
+            //console.log(user.password)
+            //console.log(password)
             //console.log(user)
-            const isPasswordValid = bcrypt.compare(password, user.password)
+            //const isPasswordValid = bcrypt.compare(password, user.password)
+            //console.log(isPasswordValid)
+            const isPasswordValid = await user.comparePassword(password)
             console.log("done comparing")
-            console.log(isPasswordValid)
-            //const isPasswordValid = await user.comparePassword(password)
-            console.log("we out of compare")
             //const isPasswordValid = password === user.password
             //console.log('hashed')
             if (!user || !isPasswordValid) {

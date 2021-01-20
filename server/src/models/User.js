@@ -48,12 +48,14 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
+    /*
+    this doesn't work
     User.prototype.comparePassword = (password) => {
-        //const currentPassword = this.password
-        console.log(this.password, password)
-        console.log("we are comparing passwords")
-        console.log(this)
-        console.log(bcrypt.compare(password, this.password))
+        return bcrypt.compare(password, this.password)    
+    }
+    */
+    User.prototype.comparePassword = function (password) {
+        
         return bcrypt.compare(password, this.password)
         
     }
