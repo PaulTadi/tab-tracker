@@ -5,7 +5,7 @@
                 TabTracker
                 </span>
             </v-toolbar-title>
-                <v-btn text >
+                <v-btn text test to="/songs">
                     Browser
                 </v-btn>
                 <v-spacer></v-spacer>
@@ -21,9 +21,9 @@
                 </v-btn>
                 <v-btn
                 v-if="$store.state.isUserLoggedIn"
-                @click="logOff"
+                @click="logout"
                 >
-                    Logoff
+                    Log Out
                 </v-btn>
         </v-app-bar>
 
@@ -33,9 +33,12 @@
 
 export default {
   methods: {
-    async logOff () {
+    logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'HelloWorld'
+      })
     }
   }
 }

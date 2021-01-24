@@ -1,10 +1,6 @@
 <template>
 <v-layout column>
-    <div class="dark elevation-2">
-      <v-toolbar flat dense class="cyan" dark>
-        <v-toolbar-title>Register</v-toolbar-title>
-      </v-toolbar>
-    <div class="pl-4 pr-4 pt-2 pb-2">
+  <panel title="Register">
     <v-text-field
       label="Email"
       v-model="email"
@@ -23,12 +19,12 @@
     dark
     @click="register"
     >Register</v-btn>
-    </div>
-    </div>
+  </panel>
 </v-layout>
 </template>
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -50,6 +46,9 @@ export default {
         this.error = error.response.data.error
       }
     }
+  },
+  components: {
+    Panel
   }
 }
 </script>
