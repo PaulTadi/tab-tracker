@@ -5,7 +5,7 @@
                 TabTracker
                 </span>
             </v-toolbar-title>
-                <v-btn text test to="/songs">
+                <v-btn text to="/songs">
                     Browser
                 </v-btn>
                 <v-spacer></v-spacer>
