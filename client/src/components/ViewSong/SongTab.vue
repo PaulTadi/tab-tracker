@@ -11,14 +11,10 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 export default {
   props: [
     'songTab'
-  ],
-  components: {
-    Panel
-  }
+  ]
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

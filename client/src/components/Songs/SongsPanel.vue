@@ -1,9 +1,5 @@
 <template>
-<v-container>
-  <v-row>
-    <v-col md="8"
-        offset-md="2">
-        <panel title="Songs">
+ <panel title="Songs">
       <v-btn
         slot="action"
         class="mt-2 accent-2"
@@ -61,33 +57,26 @@
               </v-row>
             </div>
         </panel>
-    </v-col>
-  </v-row>
-</v-container>
 </template>
+
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       songs: null
     }
   },
   methods: {
-    // navigation methode not utilised
+  // navigation methode not utilised
     navigateTo (route) {
       this.$router.push(route)
     }
   },
   async mounted () {
-    // do  a request to the backend for all the songs
+  // do  a request to the backend for all the songs
     this.songs = (await SongsService.index()).data
   }
-
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
