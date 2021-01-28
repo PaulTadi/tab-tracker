@@ -6,7 +6,7 @@
       <v-main>
         <v-container class="mt-16">
       <v-row no-gutters>
-        <v-col md="8" offset-md="2">
+        <v-col>
           <router-view app />
         </v-col>
       </v-row>

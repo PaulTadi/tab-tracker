@@ -1,5 +1,8 @@
 <template>
-    <v-layout column>
+<v-container>
+  <v-row>
+    <v-col md="8"
+        offset-md="2">
         <panel title="Songs">
       <v-btn
         slot="action"
@@ -17,12 +20,9 @@
         mdi-plus
       </v-icon>
     </v-btn>
-
             <div v-for="song in songs"
             class="song"
             :key="song.id">
-
-            <v-container>
               <v-row dense>
               <v-col col="6">
               <v-row dense>
@@ -59,10 +59,11 @@
                 <img class="album-image" :src="song.albumImageUrl" />
               </v-col>
               </v-row>
-            </v-container>
             </div>
         </panel>
-    </v-layout>
+    </v-col>
+  </v-row>
+</v-container>
 </template>
 <script>
 import SongsService from '@/services/SongsService'

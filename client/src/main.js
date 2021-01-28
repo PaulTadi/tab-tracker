@@ -6,6 +6,7 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import vuetify from '@/plugins/vuetify'
 import store from '@/store/store'
+import vueYouTube from '@/plugins/vueYouTube'
 
 Vue.config.productionTip = false
 
@@ -18,5 +19,6 @@ new Vue({
   store,
   components: { App },
   vuetify,
+  vueYouTube,
   template: '<App/>'
 })

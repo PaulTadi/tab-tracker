@@ -17,7 +17,7 @@ module.exports = {
         try{
             console.log('hi')
             console.log(req.params.songId)
-            const songs = await Song.findById(req.params.songId)
+            const songs = await Song.findByPk(req.params.songId)
             res.send(songs)
         } catch (err) {
             res.status(500).send({
@@ -29,6 +29,21 @@ module.exports = {
         try{
             const song = await Song.create(req.body)
             res.send(song)
+        } catch (err) {
+            res.status(500).send({
+                error: 'An error has occured trying to display songs'
+            })
+        }
+    },
+    async put (req, res) {
+        console.log(`this is editing ${req.params.songId}`)
+        try{
+            const song = await Song.update(req.body, {
+                where: {
+                    id: req.params.songId
+                }
+            })
+            res.send(req.body)
         } catch (err) {
             res.status(500).send({
                 error: 'An error has occured trying to display songs'

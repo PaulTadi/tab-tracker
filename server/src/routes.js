@@ -14,9 +14,11 @@ module.exports = (app) => {
     AuthenticationController.login)
 
     app.get('/songs',
-    SongsController.index)
+        SongsController.index)
     app.get('/songs/:songId',
-    SongsController.show)
+        SongsController.show)
     app.post('/songs',
-    SongsController.post)
+        SongsController.post)
+    app.put('/songs/:songId',
+        SongsController.put)
 }

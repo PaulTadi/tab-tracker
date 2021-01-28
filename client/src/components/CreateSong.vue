@@ -1,7 +1,7 @@
 <template>
-  <v-container fill-height>
+  <v-container>
     <v-row dense>
-      <v-col cols="3">
+      <v-col cols="4">
         <panel title="Song Metadata">
           <v-text-field
           label="Title*"
@@ -41,7 +41,7 @@
           </v-text-field>
         </panel>
       </v-col>
-      <v-col cols="9">
+      <v-col cols="8">
         <panel title="Song Detail">
           <v-textarea
           label="Lyrics*"
@@ -66,7 +66,7 @@
           <v-btn class="cyan" dark @click="create">Create Song</v-btn>
         </panel>
       </v-col>
-    </v-row>
+      </v-row>
   </v-container>
 </template>
 

@@ -1,6 +1,9 @@
 <template>
 
-<v-layout column>
+<v-container>
+  <v-row>
+    <v-col md="8"
+        offset-md="2">
   <panel title="Login">
     <v-text-field
       label="Email"
@@ -21,7 +24,9 @@
     @click="login"
     >Login</v-btn>
   </panel>
-</v-layout>
+    </v-col>
+  </v-row>
+</v-container>
 
 </template>
 
